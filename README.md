@@ -12,7 +12,16 @@
 
 1. Create an email inbox in Mailosaur and give it a name
 2. Send an email to the Mailosaur inbox and verify it arrived in the Mailosaur webapp's inbox.
-3. In email.feature file, update any varialbes to match the email you sent - e.g. change no-reply@acme.com to your own email address.
+3. In email.feature file, update any variables to match the email you sent - e.g. change no-reply@acme.com to your own email address.
+
+### SMS testing setup
+
+1. Go to "SMS" in the left side navigation of the Mailosaur app
+2. Click "Get stated now"
+3. Request access to get a test number created - you may have to wait until they've emailed you asking why and you've given a reason.
+4. Back in SMS section, set up a number and link it to the same inbox used for emails.
+5. Send that number an SMS and check it enters the inbox in the Mailosaur app.
+6. In sms.feature file, update any variables to match the phone number the message was sent from and to. Don't include any pluses - e.g. "+447700000000" should be "447700000000".
 
 ### Runnng the Cucumber tests
 
