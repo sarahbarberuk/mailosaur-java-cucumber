@@ -18,10 +18,12 @@ public class EmailSteps {
         Dotenv dotenv = Dotenv.load();
         String apiKey = dotenv.get("MAILOSAUR_API_KEY");
         serverId = dotenv.get("MAILOSAUR_SERVER_ID");
+
         assertNotNull("MAILOSAUR_API_KEY must be set", apiKey);
         assertNotNull("MAILOSAUR_SERVER_ID must be set", serverId);
         assertFalse("MAILOSAUR_API_KEY must not be empty", apiKey.isEmpty());
         assertFalse("MAILOSAUR_ must not be empty", serverId.isEmpty());
+        
         client = new MailosaurClient(apiKey);
     }
 

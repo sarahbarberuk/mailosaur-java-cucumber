@@ -17,14 +17,16 @@ public class QuickStartSteps {
     public void a_mailosaur_api_key_is_configured() {
         Dotenv dotenv = Dotenv.load();
         apiKey = dotenv.get("MAILOSAUR_API_KEY");
+        
         assertNotNull("MAILOSAUR_API_KEY must be set", apiKey);
         assertFalse("MAILOSAUR_API_KEY must not be empty", apiKey.isEmpty());
     }
 
     @When("I connect to the Mailosaur API")
     public void i_connect_to_the_mailosaur_api() throws Exception {
-        // Make a simple API call to get a list of email severs
         client = new MailosaurClient(apiKey);
+
+        // Make a simple API call to get a list of email severs
         emailServers = client.servers().list().items();
     }
 
