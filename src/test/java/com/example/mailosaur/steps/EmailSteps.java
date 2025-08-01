@@ -18,6 +18,8 @@ public class EmailSteps {
         Dotenv dotenv = Dotenv.load();
         String apiKey = dotenv.get("MAILOSAUR_API_KEY");
         serverId = dotenv.get("MAILOSAUR_SERVER_ID");
+        assertNotNull("MAILOSAUR_API_KEY must be set", apiKey);
+        assertNotNull("MAILOSAUR_SERVER_ID must be set", serverId);
         assertFalse("MAILOSAUR_API_KEY must not be empty", apiKey.isEmpty());
         assertFalse("MAILOSAUR_ must not be empty", serverId.isEmpty());
         client = new MailosaurClient(apiKey);
@@ -28,8 +30,8 @@ public class EmailSteps {
         assertNotNull("Client should be initialized", client);
     }
 
-    @When("I search for the password reset email I sent earlier")
-    public void i_search_for_the_password_reset_email() throws Exception {
+    @When("I search for the {string} email I sent earlier")
+    public void i_search_for_the_email(String subject) throws Exception {
         SearchCriteria criteria = new SearchCriteria().withSubject("Password reset");
         message = client.messages().get(serverId, criteria);
     }

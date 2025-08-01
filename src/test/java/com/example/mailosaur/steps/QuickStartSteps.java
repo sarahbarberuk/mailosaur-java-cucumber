@@ -17,6 +17,7 @@ public class QuickStartSteps {
     public void a_mailosaur_api_key_is_configured() {
         Dotenv dotenv = Dotenv.load();
         apiKey = dotenv.get("MAILOSAUR_API_KEY");
+        assertNotNull("MAILOSAUR_API_KEY must be set", apiKey);
         assertFalse("MAILOSAUR_API_KEY must not be empty", apiKey.isEmpty());
     }
 
