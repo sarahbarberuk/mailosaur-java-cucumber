@@ -37,7 +37,7 @@ public class EmailSteps {
     }
 
     @Then("that email should be sent from {string} at {string}")
-    public void that_email_should_be_send_from_at(String name, String emailAddress) {
+    public void that_email_should_be_sent_from_at(String name, String emailAddress) {
         assertEquals(name, message.from().get(0).name());
         assertEquals(emailAddress, message.from().get(0).email());
     }
