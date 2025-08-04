@@ -13,8 +13,8 @@ public class EmailSteps {
     private Message message;
     private String serverId;
 
-    @Given("the API key is set for Mailosaur")
-    public void the_api_key_is_set() {
+    @Given("the Mailosaur API client is setup")
+    public void the_mailosaur_api_client_is_setup() {
         Dotenv dotenv = Dotenv.load();
         String apiKey = dotenv.get("MAILOSAUR_API_KEY");
         serverId = dotenv.get("MAILOSAUR_SERVER_ID");
@@ -22,18 +22,14 @@ public class EmailSteps {
         assertNotNull("MAILOSAUR_API_KEY must be set", apiKey);
         assertNotNull("MAILOSAUR_SERVER_ID must be set", serverId);
         assertFalse("MAILOSAUR_API_KEY must not be empty", apiKey.isEmpty());
-        assertFalse("MAILOSAUR_ must not be empty", serverId.isEmpty());
+        assertFalse("MAILOSAUR_SERVER_ID must not be empty", serverId.isEmpty());
         
         client = new MailosaurClient(apiKey);
     }
 
-    @When("I call the Mailosaur API")
-    public void i_call_the_mailosaur_api() {
-        assertNotNull("Client should be initialized", client);
-    }
-
     @When("I search for the {string} email I sent earlier")
     public void i_search_for_the_email(String subject) throws Exception {
+        assertNotNull("Client should be initialized", client);
         SearchCriteria criteria = new SearchCriteria().withSubject(subject);
         message = client.messages().get(serverId, criteria);
     }
