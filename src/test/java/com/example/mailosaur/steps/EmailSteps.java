@@ -25,11 +25,11 @@ public class EmailSteps {
         assertFalse("MAILOSAUR_SERVER_ID must not be empty", serverId.isEmpty());
         
         client = new MailosaurClient(apiKey);
+        assertNotNull("Client should be initialized", client);
     }
 
     @When("I search for the {string} email I sent earlier")
     public void i_search_for_the_email(String subject) throws Exception {
-        assertNotNull("Client should be initialized", client);
         SearchCriteria criteria = new SearchCriteria().withSubject(subject);
         message = client.messages().get(serverId, criteria);
     }
