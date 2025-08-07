@@ -32,6 +32,7 @@ public class EmailSteps {
     public void i_search_for_the_email(String subject) throws Exception {
         SearchCriteria criteria = new SearchCriteria().withSubject(subject);
         message = client.messages().get(serverId, criteria);
+        assertNotNull("Message not found", message);
     }
 
     @Then("that email should be sent from {string} at {string}")
