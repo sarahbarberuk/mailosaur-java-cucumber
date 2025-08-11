@@ -13,8 +13,8 @@ public class QuickStartSteps {
     private MailosaurClient client;
     private List<Server> emailServers;
 
-    @Given("a Mailosaur API key is configured")
-    public void a_mailosaur_api_key_is_configured() {
+    @Given("the Mailosaur API client is setup")
+    public void the_mailosaur_api_client_is_setup() {
         Dotenv dotenv = Dotenv.load();
         apiKey = dotenv.get("MAILOSAUR_API_KEY");
         
