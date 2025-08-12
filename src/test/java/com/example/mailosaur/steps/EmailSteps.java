@@ -29,7 +29,7 @@ public class EmailSteps {
     }
 
     @When("I search for the {string} email I sent earlier")
-    public void i_search_for_the_email(String subject) throws Exception {
+    public void i_search_for_the_email_i_sent_earlier(String subject) throws Exception {
         SearchCriteria criteria = new SearchCriteria().withSubject(subject);
         message = client.messages().get(serverId, criteria);
         assertNotNull("Message not found", message);

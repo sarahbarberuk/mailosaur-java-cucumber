@@ -14,8 +14,8 @@ public class SmsSteps {
     private Message message;
     private String serverId;
 
-    @Given("Mailosaur API client is setup")
-    public void mailosaur_api_client_is_setup() {
+    @Given("the Mailosaur API client is setup")
+    public void the_mailosaur_api_client_is_setup() {
         Dotenv dotenv = Dotenv.load();
         String apiKey = dotenv.get("MAILOSAUR_API_KEY");
         serverId = dotenv.get("MAILOSAUR_SERVER_ID");
