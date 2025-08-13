@@ -2,6 +2,6 @@ Feature: Email testing with Mailosaur
 
 @emailtest
 Scenario: Basic usage
-    Given the Mailosaur API client is setup
+    Given the Mailosaur API client is setup for email
     When I search for the "test" email I sent earlier
     Then that email should be sent from "Support" at "no-reply@acme.com"

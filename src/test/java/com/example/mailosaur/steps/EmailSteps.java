@@ -13,7 +13,7 @@ public class EmailSteps {
     private Message message;
     private String serverId;
 
-    @Given("the Mailosaur API client is setup")
+    @Given("the Mailosaur API client is setup for email")
     public void the_mailosaur_api_client_is_setup() {
         Dotenv dotenv = Dotenv.load();
         String apiKey = dotenv.get("MAILOSAUR_API_KEY");
